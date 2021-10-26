@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form method="post" action="leave">
+  {% csrf_token %}
+  <input type="text" id="employeeName" placeholder="Employee Name" name="employeeName" autofocus><br>
+  <label for="start_date">Start Date:</label>
+  <input type="date" id="StartDate" name="StartDate"><br>
+  <label for="EndDate">End Date:</label>
+  <input type="date" id="EndDate" name="EndDate"><br>
+  <input type="radio" id="halfday" name="LeaveDay" value="halfday">
+  <label for="halfday">Half Day</label><br>
+  <input type="radio" id="fullday" name="LeaveDay" value="fullday">
+  <label for="fullday">Full Day</label><br>
+  <input type="submit">
+  {% if message %}
+  {% for result in message %}
+  <b style="color: green;">{{result}}</b>
+  {% endfor %}
+  {% endif %}
+</form>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form method="post" action="worktime">
+  {% csrf_token %}
+  <input type="text" id="employeeName" placeholder="Employee Name" name="employeeName" autofocus><br>
+  <label for="clockIn">Clock In :</label>
+  <input type="datetime-local" id="clockIn" name="clockIn"><br>
+  <label for="clockOut">Clock Out:</label>
+  <input type="datetime-local" id="clockOut" name="clockOut"><br>
+  <input type="submit">
+  {% if message %}
+  {% for result in message %}
+  <b style="color: green;">{{result}}</b>
+  {% endfor %}
+  {% endif %}
+</form>
+
+</body>
+</html>
