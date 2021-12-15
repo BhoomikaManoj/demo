@@ -1,0 +1,77 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+<head>
+    <style>
+        body {
+            background: url('https://static-communitytable.parade.com/wp-content/uploads/2014/03/rethink-target-heart-rate-number-ftr.jpg') fixed;
+            background-size: cover;
+        }
+
+        *[role="form"] {
+            max-width: 530px;
+            padding: 15px;
+            margin: 0 auto;
+            border-radius: 0.3em;
+            background-color: #f2f2f2;
+        }
+
+        *[role="form"] h2 {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 40px;
+            font-weight: 600;
+            color: #000000;
+            margin-top: 5%;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+    </style>
+</head>
+
+
+<div class="container">
+    <form class="form-horizontal" role="form" action="register" method="post">
+        {% csrf_token %}
+
+        <h2>Registration</h2>
+        <div class="form-group">
+            <label for="firstname" class="col-sm-3 control-label">First Name</label>
+            <div class="col-sm-9">
+                <input type="text" id="firstname" placeholder="Student First Name" class="form-control" name="firstname" autofocus>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="lastname" class="col-sm-3 control-label">Last Name</label>
+            <div class="col-sm-9">
+                <input type="text" id="lastname" placeholder="Student Last Name" class="form-control" name="lastname">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="currentjob" class="col-sm-3 control-label">Current Job</label>
+            <div class="col-sm-9">
+                <input type="text" id="currentjob" placeholder="Current Job" class="form-control" name="currentjob">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="location" class="col-sm-3 control-label">Location</label>
+            <div class="col-sm-9">
+                <input type="text" id="location" placeholder="Location" class="form-control" name="location">
+            </div>
+        </div>
+        <input type="submit" name="register" class="btn btn-primary btn-block">
+        {% if message %}
+        {% for result in message %}
+        <b style="color: green;">{{result}}</b>
+        {% endfor %}
+        {% endif %}
+    </form> <!-- /form -->
+</div> <!-- ./container -->
